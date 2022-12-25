@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      form {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include ("navbar.ejs") %>
+
+    <br /><br /><br />
+    <h3 style="text-align: center; color: red">Make Payment</h3>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Payment_Type">Payment_Type</label>
+          <input
+          type="text"
+          class="Payment_Type form-control"
+          placeholder="Payment_Type"
+        />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Customer_Id">Customer_Id</label>
+          <input
+          type="text"
+          class="Customer_Id form-control"
+          placeholder="Customer_Id"
+        />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Policy_Id">Policy_Id</label>
+          <input
+          type="text"
+          class="Customer_Id form-control"
+          placeholder="Policy_Id"
+        />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Amount">Amount</label>
+          <input
+          type="text"
+          class="Amount form-control"
+          placeholder="Amount"
+        />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Date">Date</label>
+          <input
+          type="text"
+          class="Date form-control"
+          placeholder="Date"
+        />
+        </div>
+        
+      <button type="submit" class="btn btn-primary">Pay</button>
+    </form>
+
+    <br /><br />
+  </body>
+</html>
+
+<div class="container">
+  <div class="row">
+  <!-- You can make it whatever width you want. I'm making it full width
+  on <= small devices and 4/12 page width on >= medium devices -->
+  <div class="col-xs-12 col-md-4">
+  
+  
+  <!-- CREDIT CARD FORM STARTS HERE -->
+  <div class="panel panel-default credit-card-box">
+  <div class="panel-heading display-table" >
+  <div class="row display-tr" >
+  <h3 class="panel-title display-td" >Payment Details</h3>
+  <div class="display-td" >                            
+  <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+  </div>
+  </div>                    
+  </div>
+  <div class="panel-body">
+  <form role="form" id="payment-form">
+  <div class="row">
+  <div class="col-xs-12">
+  <div class="form-group">
+  <label for="cardNumber">CARD NUMBER</label>
+  <div class="input-group">
+  <input 
+  type="tel"
+  class="form-control"
+  name="cardNumber"
+  placeholder="Valid Card Number"
+  autocomplete="cc-number"
+  required autofocus 
+  />
+  <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+  </div>
+  </div>                            
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-xs-7 col-md-7">
+  <div class="form-group">
+  <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+  <input 
+  type="tel" 
+  class="form-control" 
+  name="cardExpiry"
+  placeholder="MM / YY"
+  autocomplete="cc-exp"
+  required 
+  />
+  </div>
+  </div>
+  <div class="col-xs-5 col-md-5 pull-right">
+  <div class="form-group">
+  <label for="cardCVC">CV CODE</label>
+  <input 
+  type="tel" 
+  class="form-control"
+  name="cardCVC"
+  placeholder="CVC"
+  autocomplete="cc-csc"
+  required
+  />
+  </div>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-xs-12">
+  <div class="form-group">
+  <label for="couponCode">COUPON CODE</label>
+  <input type="text" class="form-control" name="couponCode" />
+  </div>
+  </div>                        
+  </div>
+  <div class="row">
+  <div class="col-xs-12">
+  <button class="btn btn-success btn-lg btn-block" type="submit">Start Subscription</button>
+  </div>
+  </div>
+  <div class="row" style="display:none;">
+  <div class="col-xs-12">
+  <p class="payment-errors"></p>
+  </div>
+  </div>
+  </form>
+  </div>
+  </div>            
+  <!-- CREDIT CARD FORM ENDS HERE -->
+  
+  
+  </div>            
+  
+  
+  
+  </div>
+  </div>
+  
+    <!-- If you're using Stripe for payments -->
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    
+  </body>

@@ -1,0 +1,74 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: -40%">ADD Applied Endorsement</h2>
+  <form
+    method="POST"
+    action="/peu"
+    style="margin-left: 30%; margin-right: 30%"
+  >
+    <div class="row">
+      <div class="col">
+         <div class="row">
+      <div class="col">
+        <%if (policy){ %>
+        <select name="Policy_Id"  class="form-control">
+          <option>Select Policy</option>
+           <% policy.forEach(function(pol){ %>
+          <option value="<%= pol.Policy_Id %>"><%= pol.Type %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+      <br />
+      <div class="col">
+        <%if (user){ %>
+        <select name="User_Id"  class="form-control">
+          <option>Select User</option>
+           <% user.forEach(function(pol){ %>
+          <option value="<%= pol.User_Id %>"><%= pol.User_Name %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+      
+      <br>
+
+      <div class="col">
+        <%if (endorsement){ %>
+        <select name="Endorsement_Id"  class="form-control">
+           <option>Select Endorsement</option>
+           <% endorsement.forEach(function(e){ %>
+          
+          <option value="<%=e.Endorsement_Id%>"><%= e.Benefit_Desc %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+      </div>
+    </div>
+      </div>
+      <br />
+    </div>
+    <br />
+   
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Add Appied POlicy</button>
+  </form>
+</body>
+<br /><br />
+
+<br /><br />

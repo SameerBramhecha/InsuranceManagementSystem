@@ -1,0 +1,77 @@
+<%- include ("customerbase.ejs") %>
+
+<head>
+  <link
+    href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    id="bootstrap-css"
+  />
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top: 15px;
+      font-size: 20px;
+
+      transition: 0.5s;
+      transition-property: color;
+    }
+  </style>
+</head>
+<br /><br />
+<div class="container" style="margin-top: -40%">
+  <div class="panel panel-primary" style="margin-left: 25%; margin-right: 25%">
+    <div class="panel-heading">
+      <h6 class="panel-title">Available Policies</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Policy ID</th>
+          <th>Category</th>
+          <th>Duration</th>
+          <th>Premium</th>
+          <th>Policy Limit</th>
+          <th>Benefits</th>
+          <th>Drawbacks</th>
+          <th>Apply</th>
+        </tr>
+      </thead>
+      <% policy.forEach(function(poli){ %>
+      <tr>
+        <td><%= poli.Policy_Id %></td>
+        <td><%= poli.Type %></td>
+        <td><%= poli.Duration %></td>
+        <td><%= poli.Premium %></td>
+        <td><%= poli.Policy_Limit %></td>
+        <td><%= poli.Benefits %></td>
+        <td><%= poli.Drawbacks %></td>
+        <td>
+          <a class="btn btn-danger btn-xs" href="<% /policy %>">Apply ></a>
+        </td>
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+{% endblock content %}

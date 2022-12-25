@@ -1,0 +1,154 @@
+
+<%- include ("adminbase.ejs") %>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  <style media="screen">
+    input[type="text"],
+    select,
+    input[type="number"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top: 15px;
+      font-size: 20px;
+
+      transition: 0.5s;
+      transition-property: color;
+    }
+    .left_area {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<% if(records) { %>
+<div class="container" style="margin-top: -40%">
+  <div class="panel panel-primary" style="margin-left: 25%; margin-right: 25%">
+    <div class="panel-heading">
+      <h6 class="panel-title">Agents</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Agent ID</th>
+          <th>Agent Name</th>
+          <th>Contact</th>
+          <th>Email Id</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <% records.forEach(function(ag){ %>
+      <tr>
+        <td><%= ag.Agent_Id%></td> 
+        <td><%= ag.Agent_Name %></td>
+        <td><%= ag.Contact_No %></td>
+        <td><%= ag.Email_Id %></td>
+        <td><%= ag.Address %></td>
+        
+      
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+</div>
+ <form action="/agentbyid" method="post">
+    <div class="col" style="margin-left: 30%; margin-right: 30%">
+      <input
+        type="text"
+        name="Agent_Id"
+        class="form-control"
+        placeholder="Enter Id to Update"
+      />
+      <br />
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+  </form>
+  <br />
+<% } %>
+<br /><br />
+<h3 style="text-align: center; margin-top: -40%">UPDATE AGENT</h3>
+<div>
+  <% if(recordid) { %>
+  <form
+    method="post"
+    action="/agent/id"
+    style="margin-left: 25%; margin-right: 25%"
+  >
+  <input type="hidden" name="Agent_Id" value="<%=recordid[0].Agent_Id%>">
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name="Agent_Name"
+          class="form-control" value="<%=recordid[0].Agent_Name%>"
+          placeholder="Agent Name"
+        />
+      </div>
+      <div class="col">
+        <input
+          type="text" name="Contact_No"
+          class=" form-control" value="<%=recordid[0].Contact_No%>"
+          placeholder="Contact Number"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name="Email_Id" value="<%=recordid[0].Email_Id%>"
+          class=" form-control"
+          placeholder="Email Id"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input type="text" name="Address" value="<%=recordid[0].Address%>" class=" form-control" placeholder="Address" />
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Update Agent</button>
+  </form>
+</div>
+<%}%>
+<br /><br /><br /><br /><br /><br /><br /><br />

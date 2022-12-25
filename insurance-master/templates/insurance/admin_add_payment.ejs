@@ -1,0 +1,76 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: -40%">ADD PAYMENT</h2>
+  <form
+    method="POST"
+    action="/payment"
+    style="margin-left: 30%; margin-right: 30%"
+  >
+    <div class="row">
+      <div class="col">
+         <div class="row">
+      <div class="col">
+        <%if (policy){ %>
+        <select name="Policy_Id"  class="form-control">
+          <option>Select Policy</option>
+           <% policy.forEach(function(pol){ %>
+          <option value="<%= pol.Policy_Id %>"><%= pol.Type %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+      <br />
+      <div class="col">
+       <%if (user){ %>
+        <select name="User_Id"  class="form-control">
+           <option>Select User</option>
+           <% user.forEach(function(user1){ %>
+          
+          <option value="<%= user1.User_Id %>"><%= user1.User_Name %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+    </div>
+
+        
+      </div>
+      <br />
+      <div class="col">
+        <input type="text" name= "Amount" class="form-control" placeholder="Amount" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name = "Payment_Type"
+          class="form-control"
+          placeholder="PaymentType"
+        />
+      </div>
+      <br />
+    </div>
+    <br />
+   
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Add Payment</button>
+  </form>
+</body>
+<br /><br />
+
+<br /><br />

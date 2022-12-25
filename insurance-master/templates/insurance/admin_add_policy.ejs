@@ -1,0 +1,90 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: -40%">ADD POLICY</h2>
+  <form
+    method="POST"
+    action="/policy"
+    style="margin-left: 30%; margin-right: 30%"
+  >
+    <div class="row">
+      <div class="col">
+        <select name="Type"  class="form-control">
+          
+          <option >Type</option>
+          <option value="Life Insurance">Life Insurance</option>
+          <option value="Health Insurance">Health Insurance</option>
+          <option value="Home Insurance">Home Insurance</option>
+          <option value="Travel Insurance">Travel Insurance</option>
+          <option value="Vehicle Insurance">Vehicle Insurance </option>
+          <option value="Fire Insurance">Fire Insurance></option>
+        </select>
+        
+      </div>
+      <br />
+      <div class="col">
+        <input type="text" name= "Premium" class="form-control" placeholder="Premium" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name = "Duration"
+          class="form-control"
+          placeholder="Duration"
+        />
+      </div>
+      <br />
+      <div class="col">
+        <input
+          type="text" name="Policy_Limit"
+          class="form-control"
+          placeholder="Policy_Limit"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <%if (benifits){ %>
+        <select name="Benefit_Id"  class="form-control">
+          
+           <% benifits.forEach(function(ben){ %>
+          <option value="<%= ben.Benefit_Id %>"><%= ben.Benefits %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+      <br />
+      <div class="col">
+       <%if (drawbacks){ %>
+        <select name="Drawback_Id"  class="form-control">
+          
+           <% drawbacks.forEach(function(draw){ %>
+          <option value="<%= draw.Drawback_Id %>"><%= draw.Drawbacks %></option>
+         <%});    %>
+        </select>
+        <% } %>
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-primary">Add Policy</button>
+  </form>
+</body>
+<br /><br />
+
+<br /><br />

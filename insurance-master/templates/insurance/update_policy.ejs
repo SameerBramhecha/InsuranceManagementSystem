@@ -1,0 +1,136 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: -40%">UPDATE POLICY</h2>
+  <% if(records) { %>
+  <div class="container">
+    <div
+      class="panel panel-primary"
+      style="margin-left: 25%; margin-right: 25%"
+    >
+      <div class="panel-heading">
+        <h6 class="panel-title">Update Policy</h6>
+      </div>
+      
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Policy ID</th>
+            <th>Category</th>
+            <th>Duration</th>
+            <th>Premium</th>
+            <th>Policy Limit</th>
+            <th>Benefits</th>
+            <th>Drawbacks</th>
+          </tr>
+        </thead>
+
+        <% records.forEach(function(poli){ %>
+        <tr>
+          <td><%= poli.Policy_Id %></td>
+          <td><%= poli.Type %></td>
+          <td><%= poli.Duration %></td>
+          <td><%= poli.Premium %></td>
+          <td><%= poli.Policy_Limit %></td>
+          <td><%= poli.Benefits %></td>
+          <td><%= poli.Drawbacks %></td>
+        </tr>
+        <% }); %>
+      </table>
+      
+    </div>
+  </div>
+
+  <form action="/policybyid" method="post">
+    <div class="col" style="margin-left: 30%; margin-right: 30%">
+      <input
+        type="text"
+        name="Policy_Id"
+        class="form-control"
+        placeholder="Enter Id to Update"
+      />
+      <br />
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+  </form>
+  <br />
+  <%}%>
+  <% if(recordid) { %>
+  <form
+    method="POST"
+    action="/policy/Id"
+    style="margin-left: 30%; margin-right: 30%">
+    <div class="row">
+      <div class="col">
+        <input type="hidden" name="Policy_Id" value="<%= recordid[0].Policy_Id %>">
+        <input type="hidden" name="Benefit_Id" value="<%= recordid[0].Benefit_Id %>">
+        <input type="hidden" name="Drawback_Id" value="<%= recordid[0].Drawback_Id %>">
+        <select name="Type" class="form-control">
+          <option value="<%= recordid[0].Type %>"><%= recordid[0].Type %></option>
+          <option value="Life Insurance">Life Insurance</option>
+          <option value="Health Insurance">Health Insurance</option>
+          <option value="Home Insurance">Home Insurance</option>
+          <option value="Travel Insurance">Travel Insurance</option>
+          <option value="Vehicle Insurance">Vehicle Insurance</option>
+          <option value="Fire Insurance">Fire Insurance</option>
+        </select>
+      </div>
+      <br />
+      <div class="col">
+        <input
+          type="text"
+          name="Premium"
+          value="<%= recordid[0].Premium %>"
+          class="form-control"
+          placeholder="Premium"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input
+          type="text"
+          name="Duration"
+          value="<%= recordid[0].Duration %>"
+          class="form-control"
+          placeholder="Duration"
+        />
+      </div>
+      <br />
+      <div class="col">
+        <input
+          type="text"
+          name="Policy_Limit"
+          value="<%= recordid[0].Policy_Limit %>"
+          class="form-control"
+          placeholder="Policy_Limit"
+        />
+      </div>
+    </div>
+    <br />
+
+    <br />
+
+    <button type="submit" class="btn btn-outline-primary">Update Policy</button>
+  </form>
+  <%} else {%>
+  <p>vcsd</p>
+  <% } %>
+</body>
+<br /><br />
+
+<br /><br />

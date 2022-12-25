@@ -1,0 +1,64 @@
+<%- include ("adminbase") %>
+<head>
+  <link
+    href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    id="bootstrap-css"
+  />
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top: 15px;
+      font-size: 20px;
+
+      transition: 0.5s;
+      transition-property: color;
+    }
+  </style>
+</head>
+<br /><br />
+<div class="container" style="margin-top: -40%">
+  <div class="panel panel-primary" style="margin-left: 25%; margin-right: 25%">
+    <div class="panel-heading">
+      <h6 class="panel-title">Endorsements</h6>
+    </div>
+    <% if(records) {%>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Endorsement Id</th>
+          <th>Type</th>
+          <th>Benefit</th>
+        </tr>
+      </thead>
+      <% records.forEach(function(endorsement){ %>
+      <tr>
+        <td><%= endorsement.Endorsement_Id %></td>
+        <td><%= endorsement.Type %></td>
+        <td><%= endorsement.Benefit_Desc %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </div>
+</div>
+<%}%>
+<br /><br /><br /><br /><br /><br />

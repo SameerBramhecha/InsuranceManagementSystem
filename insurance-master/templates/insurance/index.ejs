@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <style>
+    .xyz {
+      margin-bottom: 0px;
+      background-image: url("image/home.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  </style>
+  <head>
+    <link
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <%- include ("navbar.ejs") %>
+    <br />
+    <section
+      id="section-jumbotron"
+      style="margin-bottom: 0px"
+      class="jumbotron jumbotron-fluid d-flex justify-content-center align-items-center xyz"
+    >
+      <div class="container text-center">
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      </div>
+    </section>
+
+    <!-- {% include "insurance/footer.html" %} -->
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<h2 style="text-align: center; margin-top: -40%">ADD ENDORSEMENT</h2>
+<form
+  method="POST"
+  action="endorsement"
+  style="margin-left: 30%; margin-right: 30%"
+>
+  <div class="row">
+    <div class="col">
+      <select name="Type" class="form-control">
+        <option value="Monetary">Monetary</option>
+        <option value="Non-Monetary"> Non-Monetary</option>
+      </select>
+     
+    </div>
+    <br>
+    <div class="col">
+      <input
+        type="text" name="Benefit_Desc"
+        class=" form-control"
+        placeholder="Benefit Description"
+      />
+    </div>
+  </div>
+  <br />
+  <button type="submit" class="btn btn-outline-primary">
+    Add Endorsement
+  </button>
+</form>
+<br /><br /><br /><br />

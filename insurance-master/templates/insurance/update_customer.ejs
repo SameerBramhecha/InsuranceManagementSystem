@@ -1,0 +1,171 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+  <style media="screen">
+    input[type="text"],
+    select,
+    input[type="number"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4caf50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top: 15px;
+      font-size: 20px;
+
+      transition: 0.5s;
+      transition-property: color;
+    }
+    .left_area {
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<br /><br />
+<h3 style="text-align: center; margin-top: -40%">UPDATE CUSTOMER</h3>
+<div>
+  <% if(records) { %>
+  <div class="container">
+    <div
+      class="panel panel-primary"
+      style="margin-left: 25%; margin-right: 25%"
+    >
+      <div class="panel-heading">
+        <h6 class="panel-title">Update Customer</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>User_Id</th>
+          <th>User_Name</th>
+          <th>User_Type</th>
+          <th>Address</th>
+          <th>Age</th>
+          <th>Contact_No</th>
+          <th>Email_Id</th>
+        </tr>
+      </thead>
+      <% records.forEach(function(user1){ %>
+      <tr>
+        <td><%= user1.User_Id %></td>
+        <td><%= user1.User_Name %></td>
+        <td><%= user1.User_Type %></td>
+        <td><%= user1.Address %></td>
+        <td><%= user1.Age %></td>
+        <td><%= user1.Contact_No %></td>
+        <td><%= user1.Email_Id %></td>
+      </tr>
+      <% }); %>
+    </table>
+     
+    </div>
+  </div>
+
+  <form action="/custbyid" method="post">
+    <div class="col" style="margin-left: 30%; margin-right: 30%">
+      <input
+        type="text"
+        name="User_Id"
+        class="form-control"
+        placeholder="Enter Id to Update"
+      />
+      <br />
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+  </form>
+   <%}%>
+  <br />
+   <% if(recordid) { %>
+  <form method="post" action="/customer/id"
+    style="margin-left: 25%; margin-right: 25%">
+    <div class="row">
+      <div class="col">
+        <input type="hidden" name="User_Id" value="<%=recordid[0].User_Id%>">
+        <input type="hidden" name="User_Type" value="customer">
+        <input type="text"  name="User_Name"
+          class="form-control"
+          placeholder="User Name" value="<%=recordid[0].User_Name%>"
+        />
+      </div>
+      <div class="col">
+        <input
+          type="text" name="Contact_No"
+          class="form-control"
+          placeholder="Contact Number"
+          value="<%=recordid[0].Contact_No%>"
+        />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name="Email_Id"
+          class="form-control"
+          placeholder="Email Id"
+          value="<%=recordid[0].Email_Id%>"
+        />
+      </div>
+      <div class="col">
+        <input type="text" name="Age" class="form-control" placeholder="Age" value="<%=recordid[0].Age%>"/>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col">
+        <input type="text" name="Address" class="form-control" placeholder="Address" value="<%=recordid[0].Address%>" />
+      </div>
+    </div>
+    <br />
+    <div class="row">
+    <div class="col">
+      <input type="text" name="Password" class="form-control" placeholder="Password" value="<%=recordid[0].Password%>" />
+    </div>
+  </div>    
+    <button type="submit" class="btn btn-outline-primary">
+      Update Customer
+    </button>
+  </form>
+</div>
+<% } %>
+<br /><br /><br /><br /><br /><br /><br /><br />

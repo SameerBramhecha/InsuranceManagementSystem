@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <%- include ("navbar.ejs") %>
+
+    <br /><br /><br />
+    <h3 style="text-align: center; color: rgb(56, 120, 0)">CUSTOMER SIGNUP</h3>
+    <form method="POST" action="user-form" style="padding: 5%">
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="User_Name form-control"
+            placeholder="User Name"
+          />
+        </div>
+        <div class="col">
+          <input
+            type="text"
+            class="Contact_No form-control"
+            placeholder="Contact Number"
+          />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="Email_Id form-control"
+            placeholder="Email Id"
+          />
+        </div>
+        <div class="col">
+          <input type="text" class="Age form-control" placeholder="Age" />
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            class="Address form-control"
+            placeholder="Address"
+          />
+        </div>
+      </div>
+      <br />
+      <button type="submit" class="btn btn-outline-primary">Sign Up</button>
+    </form>
+
+    <br /><br />
+  </body>
+</html>

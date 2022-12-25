@@ -1,0 +1,53 @@
+<%- include ("adminbase") %>
+<head>
+  <link
+    href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet"
+    id="bootstrap-css"
+  />
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+<br /><br />
+<div class="container" style="margin-top: -40%">
+  <div class="panel panel-primary" style="margin-left: 25%; margin-right: 25%">
+    <div class="panel-heading">
+      <h6 class="panel-title">Benefits</h6>
+    </div>
+    <%if (records){ %>
+    <table class="table table-hover" id="dev-table" >
+      <thead>
+        <tr>
+          <th>Benefit ID</th>
+          <th>Benefit</th>
+        </tr>
+      </thead>
+     
+      <% records.forEach(function(poli){ %>
+      <tr>
+        <td><%= poli.Benefit_Id %></td>
+        <td><%= poli.Benefits %></td>
+        
+      </tr>
+      <% }); %>
+      
+    </table>
+    <% } %>
+  </div>
+</div>
+
+<br /><br /><br /><br /><br /><br />

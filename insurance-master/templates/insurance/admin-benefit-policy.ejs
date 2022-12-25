@@ -1,0 +1,37 @@
+<%- include ("adminbase") %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    a:link {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center; margin-top: -40%">ADD POLICY BENEFIT</h2>
+  <form
+    method="POST"
+    action="/benefit"
+    style="margin-left: 30%; margin-right: 30%"
+  >
+
+    <div class="row">
+      <div class="col">
+        <input
+          type="text" name = "Benefits"
+          class="form-control"
+          placeholder="Benefit"
+        />
+      </div>
+      <br />
+      
+    <button type="submit" class="btn btn-outline-primary">Add Benefit</button>
+  </form>
+</body>
+<br/><br/>
