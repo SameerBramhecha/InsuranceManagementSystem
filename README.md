@@ -5,3 +5,7 @@ Insure It is a web application created to keep track of customer information and
 - Frontend: EJS
 - Backend: Node.js
 - Database: Microsoft SQL server
+
+## How to Run?
+- Download the zip file of the project or clone the repository.
+- 
