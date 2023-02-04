@@ -8,4 +8,9 @@ Insure It is a web application created to keep track of customer information and
 
 ## How to Run?
 - Download the zip file of the project or clone the repository.
-- 
+- Open the terminal in insurance-master folder and run the following commands:
+  $ npm install
+  $ node server
+  
+- You will get the port on which the app is running.
+- Enter http://localhost:(port_number)/ on your web browser.
